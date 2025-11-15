@@ -1,4 +1,4 @@
-<div align="center"><div align="center"><div align="center">## Unified dev scripts
+<div align="center"><div align="center"><div align="center"><div align="center">## Unified dev scripts
 
 
 
@@ -6,7 +6,7 @@
 
 
 
-### AI-Powered Career Intelligence Platform# 🎯 LakshPath  <img src="https://github.com/user-attachments/assets/e8b32e6b-05f3-46c4-8e50-fe6a56156b4c" alt="LakshPath Banner" width="720" /><div align="center">
+### AI-Powered Career Intelligence Platform# 🎯 LakshPath
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)### AI-Powered Career Intelligence Platform  <h1>LakshPath</h1>  <img src="https://github.com/user-attachments/assets/e8b32e6b-05f3-46c4-8e50-fe6a56156b4c" alt="LakshPath Banner" width="720" />
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)### AI-Powered Career Intelligence Platform# 🎯 LakshPath  <img src="https://github.com/user-attachments/assets/e8b32e6b-05f3-46c4-8e50-fe6a56156b4c" alt="LakshPath Banner" width="720" /><div align="center">
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
 
@@ -22,7 +22,7 @@
 
 [![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)](https://reactjs.org)
 
-[![Gemini AI](https://img.shields.io/badge/Gemini-2.0--flash-4285F4.svg)](https://ai.google.dev)*Personalized assessments · Smart job matching · Adaptive learning roadmaps*  <p><strong>AI-Powered Career Intelligence Platform</strong></p>  <h1> LakshPath · AI-Powered Career Intelligence </h1>
+[![Gemini AI](https://img.shields.io/badge/Gemini-2.0--flash-4285F4.svg)](https://ai.google.dev)**Empowering students with personalized career guidance through AI**
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-</div>[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  <p>Personalized assessments · Smart job matching · Adaptive learning roadmaps</p>  <p>Personalized assessments, live market intelligence, and adaptive roadmaps for every student.</p>
+</div>[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)### AI-Powered Career Intelligence Platform  <h1>LakshPath</h1>  <img src="https://github.com/user-attachments/assets/e8b32e6b-05f3-46c4-8e50-fe6a56156b4c" alt="LakshPath Banner" width="720" />
 
 
 
@@ -38,15 +38,15 @@
 
 
 
-## 📖 What is LakshPath?[![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-3178C6.svg)](https://www.typescriptlang.org/)  </div>
+## 📖 What is LakshPath?[![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-3178C6.svg)](https://www.typescriptlang.org/)
 
 
 
-LakshPath is an intelligent career guidance platform that combines **AI-powered assessments**, **real-time job market analysis**, and **personalized learning roadmaps** to help students make informed career decisions.[![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)](https://reactjs.org/)
+LakshPath is an intelligent career guidance platform that combines **AI-powered assessments**, **real-time job market analysis**, and **personalized learning roadmaps** to help students make informed career decisions.[![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)](https://reactjs.org)
 
 
 
-### The Problem We Solve[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+### The Problem We Solve[![Gemini AI](https://img.shields.io/badge/Gemini-2.0--flash-4285F4.svg)](https://ai.google.dev)*Personalized assessments · Smart job matching · Adaptive learning roadmaps*  <p><strong>AI-Powered Career Intelligence Platform</strong></p>  <h1> LakshPath · AI-Powered Career Intelligence </h1>
 
 
 
@@ -54,7 +54,7 @@ LakshPath is an intelligent career guidance platform that combines **AI-powered 
 
 - 💼 Job descriptions don't match student profiles effectively
 
-- 📊 Lack of real-time market intelligence for career planning[Features](#-key-features) • [Getting Started](#-getting-started) • [Documentation](#-api-documentation) • [Deployment](#-deployment)  [![Node](https://img.shields.io/badge/node-18+-green.svg)](https://nodejs.org)## Overview
+- 📊 Lack of real-time market intelligence for career planning[✨ Features](#-features) • [🚀 Quick Start](#-quick-start) • [📖 Workflow](#-workflow-guide) • [🔌 API Docs](#-api-reference) • [🌐 Deploy](#-deployment)
 
 - 🛤️ Generic roadmaps that don't adapt to individual needs
 
@@ -62,7 +62,7 @@ LakshPath is an intelligent career guidance platform that combines **AI-powered 
 
 ### Our Solution
 
-</div>  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+</div>[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  <p>Personalized assessments · Smart job matching · Adaptive learning roadmaps</p>  <p>Personalized assessments, live market intelligence, and adaptive roadmaps for every student.</p>
 
 - 🧠 **AI Assessments** - Multi-dimensional skill evaluation using Google Gemini
 
@@ -70,7 +70,7 @@ LakshPath is an intelligent career guidance platform that combines **AI-powered 
 
 - 📈 **Market Intelligence** - Real-time salary trends, demand metrics, and skills analysis
 
-- 🎯 **Personalized Roadmaps** - AI-generated learning paths tailored to individual goals---</div>LakshPath pairs a TypeScript/Express API with a React + Vite dashboard to deliver AI-powered career planning. Students complete a multi-step assessment, receive Gemini-backed insights, auto-scouted job matches, and roadmap nudges that synch with live labor-market data.
+- 🎯 **Personalized Roadmaps** - AI-generated learning paths tailored to individual goals---[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
 
 - 🔐 **Secure & Simple** - Google OAuth authentication with seamless onboarding
 
@@ -78,7 +78,7 @@ LakshPath is an intelligent career guidance platform that combines **AI-powered 
 
 ---
 
-## 📋 Table of Contents
+## 📖 What is LakshPath?[![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-3178C6.svg)](https://www.typescriptlang.org/)  </div>
 
 ## ✨ Features
 
@@ -86,271 +86,271 @@ LakshPath is an intelligent career guidance platform that combines **AI-powered 
 
 <table>
 
-<tr>- [Overview](#-overview)---## Feature highlights
+<tr>LakshPath is an intelligent career guidance platform that combines **AI-powered assessments**, **real-time job market analysis**, and **personalized learning roadmaps** to help students make informed career decisions.[![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)](https://reactjs.org/)
 
 <td width="50%">
 
-- [Key Features](#-key-features)
+
 
 ### 🧠 Intelligent Assessments
 
-- Multi-dimensional skill evaluation- [Tech Stack](#-tech-stack)
+- Multi-dimensional skill evaluation### The Problem We Solve[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 - Technical, communication, analytical & creativity scoring
 
-- Gemini AI-powered insights- [Getting Started](#-getting-started)
+- Gemini AI-powered insights
 
 - Career path recommendations
 
-- Strength & gap analysis  - [Prerequisites](#prerequisites)## 📋 Table of Contents- **Adaptive assessments:** Quiz answers trigger Gemini prompts that output strengths, blindspots, and a tailored learning plan.
+- Strength & gap analysis- 🎓 Students struggle to identify career paths aligned with their skills
 
 
 
-</td>  - [Installation](#installation)
+</td>- 💼 Job descriptions don't match student profiles effectively
 
 <td width="50%">
 
-  - [Running Locally](#running-the-application)- **Auto-scouted jobs:** `/api/jobs/auto-scout/:userId` and `/api/jobs/compare` surface JD matches even when the learner hasn’t finished an assessment.
+- 📊 Lack of real-time market intelligence for career planning[Features](#-key-features) • [Getting Started](#-getting-started) • [Documentation](#-api-documentation) • [Deployment](#-deployment)  [![Node](https://img.shields.io/badge/node-18+-green.svg)](https://nodejs.org)## Overview
 
 ### 🔍 Smart Job Matching
 
-- Automatic job discovery (Auto-Scout)- [Project Structure](#-project-structure)
+- Automatic job discovery (Auto-Scout)- 🛤️ Generic roadmaps that don't adapt to individual needs
 
 - Manual job description comparison
 
-- Skills match & gap identification- [API Documentation](#-api-documentation)- [Overview](#-overview)- **Market dashboards:** Real-time salary, demand, and skills trends feed the frontend insight widgets.
+- Skills match & gap identification
 
 - Graceful fallbacks for new users
 
-- Cached & real-time modes- [Deployment](#-deployment)
+- Cached & real-time modes### Our Solution
 
 
 
-</td>- [Troubleshooting](#-troubleshooting)- [Key Features](#-key-features)- **Smart profile fallbacks:** Brand-new users still receive contextual summaries so JD comparison never crashes.
+</td></div>  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
 
 </tr>
 
-<tr>- [Contributing](#-contributing)
+<tr>- 🧠 **AI Assessments** - Multi-dimensional skill evaluation using Google Gemini
 
 <td width="50%">
 
-- [License](#-license)- [Tech Stack](#-tech-stack)- **Unified developer ops:** Shell helpers (`scripts/start-dev.sh`, `scripts/stop-dev.sh`, `scripts/setup-env.sh`) cover setup, boot, and teardown in one command.
+- 🔍 **Smart Job Matching** - Auto-scout jobs based on user profiles with gap analysis
 
 ### 📊 Market Intelligence
 
-- Real-time salary trends by domain
+- Real-time salary trends by domain- 📈 **Market Intelligence** - Real-time salary trends, demand metrics, and skills analysis
 
 - Industry demand metrics
 
-- Top skills analysis---- [Getting Started](#-getting-started)
+- Top skills analysis- 🎯 **Personalized Roadmaps** - AI-generated learning paths tailored to individual goals---</div>LakshPath pairs a TypeScript/Express API with a React + Vite dashboard to deliver AI-powered career planning. Students complete a multi-step assessment, receive Gemini-backed insights, auto-scouted job matches, and roadmap nudges that synch with live labor-market data.
 
 - Growth projections
 
-- Location-based insights
+- Location-based insights- 🔐 **Secure & Simple** - Google OAuth authentication with seamless onboarding
 
 
 
-</td>## 🎯 Overview- [Project Structure](#-project-structure)## Architecture snapshot
+</td>
 
 <td width="50%">
 
-
+---
 
 ### 🛤️ Personalized Roadmaps
 
-- AI-generated learning paths**LakshPath** is an AI-powered career intelligence platform that helps students and professionals navigate their career journey through personalized assessments, smart job matching, and adaptive learning roadmaps.- [API Documentation](#-api-documentation)
+- AI-generated learning paths## 📋 Table of Contents
 
 - Course & certification recommendations
 
-- Project suggestions
+- Project suggestions## ✨ Features
 
 - Milestone tracking
 
-- Resource curationBuilt with **Google Gemini AI**, the platform delivers:- [Deployment](#-deployment)| Layer | Details |
+- Resource curation
 
 
 
-</td>- 🧠 **Intelligent assessments** that analyze skills across multiple dimensions
+</td><table>
 
 </tr>
 
-</table>- 🔍 **Auto-scout job matching** with gap analysis and recommendations- [Contributing](#-contributing)| --- | --- |
+</table><tr>- [Overview](#-overview)---## Feature highlights
 
 
 
----- 📊 **Real-time market intelligence** for salary trends and demand metrics
+---<td width="50%">
 
 
 
-## 🏗️ Architecture- 🛤️ **Personalized roadmaps** with curated learning resources- [License](#-license)| Frontend | React 18, Vite, TypeScript, Tailwind, React Router, Google Identity Services |
+## 🏗️ Architecture- [Key Features](#-key-features)
 
 
 
-```mermaid
+```mermaid### 🧠 Intelligent Assessments
 
 graph TD
 
-    A[User Browser] -->|HTTPS| B[React Frontend - Vite]### Architecture Overview| Backend | Node 18, Express, Prisma (SQLite), Zod validation, Google OAuth, Gemini SDK |
+    A[User Browser] -->|HTTPS| B[React Frontend - Vite]- Multi-dimensional skill evaluation- [Tech Stack](#-tech-stack)
 
     B -->|Google OAuth| C[Google Identity]
 
-    B -->|REST API| D[Express Backend]
+    B -->|REST API| D[Express Backend]- Technical, communication, analytical & creativity scoring
 
     D -->|JWT Verify| E[Auth Middleware]
 
-    D -->|AI Prompts| F[Gemini 2.0 Flash]| Layer | Technology |---| AI | `backend/src/services/geminiService.ts` centralizes prompts for assessments, chat, market insight, and JD analysis |
+    D -->|AI Prompts| F[Gemini 2.0 Flash]- Gemini AI-powered insights- [Getting Started](#-getting-started)
 
     D -->|ORM| G[Prisma Client]
 
-    G -->|SQL| H[(SQLite/PostgreSQL)]|-------|-----------|
+    G -->|SQL| H[(SQLite/PostgreSQL)]- Career path recommendations
 
     F -->|Career Insights| D
 
-    D -->|JSON Response| B| **Frontend** | React 18, Vite, TypeScript, Tailwind CSS, React Router, Framer Motion || Auth | Google Sign-In token exchange + JWT session cookies |
+    D -->|JSON Response| B- Strength & gap analysis  - [Prerequisites](#prerequisites)## 📋 Table of Contents- **Adaptive assessments:** Quiz answers trigger Gemini prompts that output strengths, blindspots, and a tailored learning plan.
 
 ```
 
-| **Backend** | Node.js 18, Express, Prisma ORM, Zod validation |
+
 
 ### Tech Stack
 
-| **Database** | SQLite (dev) / PostgreSQL (production) |## 🎯 Overview| Infra | Local dev via npm scripts, deploy-ready for Netlify (SPA) + Render/Fly (API) |
+</td>  - [Installation](#installation)
 
 | Layer | Technologies |
 
-|-------|-------------|| **AI Engine** | Google Gemini 2.0 Flash API |
+|-------|-------------|<td width="50%">
 
 | **Frontend** | React 18, TypeScript, Vite, Tailwind CSS, React Router, Framer Motion, Recharts |
 
-| **Backend** | Node.js 18, Express, TypeScript, Zod validation || **Authentication** | Google OAuth 2.0 + JWT sessions |
+| **Backend** | Node.js 18, Express, TypeScript, Zod validation |  - [Running Locally](#running-the-application)- **Auto-scouted jobs:** `/api/jobs/auto-scout/:userId` and `/api/jobs/compare` surface JD matches even when the learner hasn’t finished an assessment.
 
 | **Database** | Prisma ORM, SQLite (dev), PostgreSQL (prod) |
 
-| **AI/ML** | Google Gemini 2.0 Flash API || **Deployment** | Netlify (frontend) + Render/Railway (backend) |
+| **AI/ML** | Google Gemini 2.0 Flash API |### 🔍 Smart Job Matching
 
 | **Authentication** | Google OAuth 2.0, JWT sessions |
 
-| **Deployment** | Netlify (frontend), Render/Railway (backend) |**LakshPath** is an AI-powered career intelligence platform designed to help students and professionals navigate their career journey through personalized assessments, smart job matching, and adaptive learning roadmaps.## Repository layout
+| **Deployment** | Netlify (frontend), Render/Railway (backend) |- Automatic job discovery (Auto-Scout)- [Project Structure](#-project-structure)
 
 
 
-------
+---- Manual job description comparison
 
 
 
-## 🚀 Quick Start
+## 🚀 Quick Start- Skills match & gap identification- [API Documentation](#-api-documentation)- [Overview](#-overview)- **Market dashboards:** Real-time salary, demand, and skills trends feed the frontend insight widgets.
 
 
 
-### Prerequisites## ✨ Key Features
+### Prerequisites- Graceful fallbacks for new users
 
 
 
-```bashThe platform combines:```
+```bash- Cached & real-time modes- [Deployment](#-deployment)
 
 # Required
 
-✅ Node.js 18+### 🧠 AI-Powered Assessments
+✅ Node.js 18+
 
 ✅ npm 9+
 
-✅ Git- Multi-dimensional skill evaluation (technical, communication, analytical, creativity)- **Gemini AI** for intelligent career guidance and assessmentsLakshpath/
+✅ Git</td>- [Troubleshooting](#-troubleshooting)- [Key Features](#-key-features)- **Smart profile fallbacks:** Brand-new users still receive contextual summaries so JD comparison never crashes.
 
 ✅ Google Cloud Project (OAuth + Gemini API)
 
-```- Gemini-based analysis generating personalized insights
+```</tr>
 
 
 
-### Installation (5 minutes)- Career path recommendations based on individual strengths- **Real-time job market analysis** with auto-scout matching├── backend/           # Express API + Prisma schema/migrations
+### Installation (5 minutes)<tr>- [Contributing](#-contributing)
 
 
 
-```bash
+```bash<td width="50%">
 
 # 1. Clone repository
 
-git clone https://github.com/cybertech-18/LakshPath.git### 🔍 Smart Job Matching- **Personalized learning roadmaps** tailored to individual skills and goals├── frontend/          # React + Vite SPA
+git clone https://github.com/cybertech-18/LakshPath.git- [License](#-license)- [Tech Stack](#-tech-stack)- **Unified developer ops:** Shell helpers (`scripts/start-dev.sh`, `scripts/stop-dev.sh`, `scripts/setup-env.sh`) cover setup, boot, and teardown in one command.
 
 cd LakshPath
 
-- **Auto-Scout**: Automatic job matching based on user profile
+### 📊 Market Intelligence
 
 # 2. Install dependencies
 
-npm install --prefix backend- **Manual Comparison**: Paste any job description for instant gap analysis- **Smart profile management** with fallback mechanisms for seamless user experience├── scripts/           # Setup/start/stop helpers
+npm install --prefix backend- Real-time salary trends by domain
 
 npm install --prefix frontend
 
-- Intelligent fallbacks for users without completed assessments
+- Industry demand metrics
 
 # 3. Setup environment files
 
-chmod +x scripts/setup-env.sh├── DOCUMENTATION.md   # Deep product and UX notes
+chmod +x scripts/setup-env.sh- Top skills analysis---- [Getting Started](#-getting-started)
 
 ./scripts/setup-env.sh
 
-### 📊 Market Intelligence
+- Growth projections
 
 # 4. Configure your API keys
 
-# Edit backend/.env and frontend/.env with your credentials- Real-time salary trends and demand metrics---├── PROJECT_SUMMARY.md # Pitch / summary deck text
+# Edit backend/.env and frontend/.env with your credentials- Location-based insights
 
 
 
-# 5. Initialize database- Skills gap analysis for target careers
+# 5. Initialize database
 
 cd backend
 
-npm run prisma:generate- Industry insights and growth projections├── STATUS.md          # Engineering health log
+npm run prisma:generate</td>## 🎯 Overview- [Project Structure](#-project-structure)## Architecture snapshot
 
 npm run prisma:migrate
 
-cd ..
+cd ..<td width="50%">
 
 
 
-# 6. Start development servers### 🛤️ Personalized Roadmaps## ✨ Key Features└── README.md          # You are here
+# 6. Start development servers
 
 chmod +x scripts/start-dev.sh
 
-./scripts/start-dev.sh- Step-by-step learning plans generated by AI
+./scripts/start-dev.sh### 🛤️ Personalized Roadmaps
 
 ```
 
-- Resource recommendations (courses, certifications, projects)```
+- AI-generated learning paths**LakshPath** is an AI-powered career intelligence platform that helps students and professionals navigate their career journey through personalized assessments, smart job matching, and adaptive learning roadmaps.- [API Documentation](#-api-documentation)
 
 ### Access the Application
 
-- Progress tracking and milestone management
+- Course & certification recommendations
 
 - 🌐 **Frontend**: http://localhost:3001
 
-- 🔌 **Backend API**: http://localhost:5001### 🧠 AI-Powered Assessments
+- 🔌 **Backend API**: http://localhost:5001- Project suggestions
 
 - ✅ **Health Check**: http://localhost:5001/health
 
-### 🔐 Secure Authentication
+- Milestone tracking
 
 ---
 
-- Google OAuth 2.0 integration- Multi-dimensional skill evaluation (technical, communication, analytical, creativity)## Prerequisites
+- Resource curationBuilt with **Google Gemini AI**, the platform delivers:- [Deployment](#-deployment)| Layer | Details |
 
 ## 📖 Workflow Guide
 
-- JWT-based session management
+
 
 For a comprehensive understanding of the platform workflow, see **[WORKFLOW.md](WORKFLOW.md)**
 
-- Protected routes and data privacy- Gemini-based analysis generating personalized insights
+</td>- 🧠 **Intelligent assessments** that analyze skills across multiple dimensions
 
 ### Quick Workflow Overview
 
-
+</tr>
 
 ```
 
-1. User Sign-In (Google OAuth)---- Career path recommendations based on individual strengths- Node.js 18+
+1. User Sign-In (Google OAuth)</table>- 🔍 **Auto-scout job matching** with gap analysis and recommendations- [Contributing](#-contributing)| --- | --- |
 
    ↓
 
@@ -358,7 +358,7 @@ For a comprehensive understanding of the platform workflow, see **[WORKFLOW.md](
 
    ↓
 
-3. Gemini AI Analysis## 🛠️ Tech Stack- npm 9+
+3. Gemini AI Analysis---- 📊 **Real-time market intelligence** for salary trends and demand metrics
 
    ↓
 
@@ -366,7 +366,7 @@ For a comprehensive understanding of the platform workflow, see **[WORKFLOW.md](
 
    ↓
 
-5. Auto-Scout Job Matching<div align="center">### 🔍 Smart Job Matching- Google Cloud project with OAuth credentials + Gemini API access
+5. Auto-Scout Job Matching## 🏗️ Architecture- 🛤️ **Personalized roadmaps** with curated learning resources- [License](#-license)| Frontend | React 18, Vite, TypeScript, Tailwind, React Router, Google Identity Services |
 
    ↓
 
@@ -374,95 +374,95 @@ For a comprehensive understanding of the platform workflow, see **[WORKFLOW.md](
 
    ↓
 
-7. Access Learning Resources & Mentorship Chat### Frontend- **Auto-Scout**: Automatic job-description matching based on user profile- Git, cURL, jq (for quick smoke tests)
+7. Access Learning Resources & Mentorship Chat```mermaid
 
 ```
 
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+graph TD
 
 ---
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)- **Manual Comparison**: Paste any job description for instant gap analysis
+    A[User Browser] -->|HTTPS| B[React Frontend - Vite]### Architecture Overview| Backend | Node 18, Express, Prisma (SQLite), Zod validation, Google OAuth, Gemini SDK |
 
 ## 📁 Project Structure
 
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+    B -->|Google OAuth| C[Google Identity]
 
 ```
 
-LakshPath/![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)- Handles users without assessments gracefully with intelligent defaults## Setup
+LakshPath/    B -->|REST API| D[Express Backend]
 
 │
 
-├── 📂 backend/                 # Express + TypeScript API
+├── 📂 backend/                 # Express + TypeScript API    D -->|JWT Verify| E[Auth Middleware]
 
 │   ├── src/
 
-│   │   ├── config/            # Environment configuration### Backend
+│   │   ├── config/            # Environment configuration    D -->|AI Prompts| F[Gemini 2.0 Flash]| Layer | Technology |---| AI | `backend/src/services/geminiService.ts` centralizes prompts for assessments, chat, market insight, and JD analysis |
 
 │   │   ├── controllers/       # Request handlers
 
-│   │   ├── services/          # Business logic layer![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+│   │   ├── services/          # Business logic layer    D -->|ORM| G[Prisma Client]
 
 │   │   │   ├── geminiService.ts      # AI integration
 
-│   │   │   ├── assessmentService.ts  # Assessment logic![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)### 📊 Market Intelligence### 1. Clone and install
+│   │   │   ├── assessmentService.ts  # Assessment logic    G -->|SQL| H[(SQLite/PostgreSQL)]|-------|-----------|
 
 │   │   │   ├── jobsService.ts        # Job matching
 
-│   │   │   └── marketService.ts      # Market data![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+│   │   │   └── marketService.ts      # Market data    F -->|Career Insights| D
 
 │   │   ├── routes/            # API endpoints
 
-│   │   ├── middleware/        # Auth & error handling![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)- Real-time salary trends and demand metrics
+│   │   ├── middleware/        # Auth & error handling    D -->|JSON Response| B| **Frontend** | React 18, Vite, TypeScript, Tailwind CSS, React Router, Framer Motion || Auth | Google Sign-In token exchange + JWT session cookies |
 
 │   │   ├── lib/               # Utilities (Prisma, engines)
 
-│   │   └── types/             # TypeScript definitions
+│   │   └── types/             # TypeScript definitions```
 
 │   ├── prisma/
 
-│   │   ├── schema.prisma      # Database models### AI & Services- Skills gap analysis for target careers```bash
+│   │   ├── schema.prisma      # Database models| **Backend** | Node.js 18, Express, Prisma ORM, Zod validation |
 
 │   │   └── migrations/        # Version-controlled migrations
 
-│   └── package.json![Google Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)
+│   └── package.json### Tech Stack
 
 │
 
-├── 📂 frontend/                # React SPA![OAuth](https://img.shields.io/badge/OAuth_2.0-3C873A?style=for-the-badge&logo=auth0&logoColor=white)- Industry insights and growth projectionsgit clone https://github.com/iayus-grow/ayush18.git
+├── 📂 frontend/                # React SPA| **Database** | SQLite (dev) / PostgreSQL (production) |## 🎯 Overview| Infra | Local dev via npm scripts, deploy-ready for Netlify (SPA) + Render/Fly (API) |
 
 │   ├── src/
 
-│   │   ├── components/        # Reusable UI components
+│   │   ├── components/        # Reusable UI components| Layer | Technologies |
 
 │   │   ├── pages/             # Route components
 
-│   │   │   ├── LandingPageNew.tsx    # Landing</div>cd ayush18/Lakshpath
+│   │   │   ├── LandingPageNew.tsx    # Landing|-------|-------------|| **AI Engine** | Google Gemini 2.0 Flash API |
 
 │   │   │   ├── LoginNew.tsx          # Authentication
 
-│   │   │   ├── QuizIntro.tsx         # Assessment intro
+│   │   │   ├── QuizIntro.tsx         # Assessment intro| **Frontend** | React 18, TypeScript, Vite, Tailwind CSS, React Router, Framer Motion, Recharts |
 
 │   │   │   ├── AssessmentQuiz.tsx    # Quiz flow
 
-│   │   │   └── DashboardNew.tsx      # Main dashboard---### 🛤️ Personalized Roadmapsnpm install --prefix frontend
+│   │   │   └── DashboardNew.tsx      # Main dashboard| **Backend** | Node.js 18, Express, TypeScript, Zod validation || **Authentication** | Google OAuth 2.0 + JWT sessions |
 
 │   │   ├── services/          # API client
 
-│   │   └── types/             # TypeScript interfaces
+│   │   └── types/             # TypeScript interfaces| **Database** | Prisma ORM, SQLite (dev), PostgreSQL (prod) |
 
 │   └── package.json
 
-│## 🚀 Getting Started- Step-by-step learning plans generated by AInpm install --prefix backend
+│| **AI/ML** | Google Gemini 2.0 Flash API || **Deployment** | Netlify (frontend) + Render/Railway (backend) |
 
 ├── 📂 scripts/                 # Developer utilities
 
-│   ├── setup-env.sh           # Environment setup
+│   ├── setup-env.sh           # Environment setup| **Authentication** | Google OAuth 2.0, JWT sessions |
 
 │   ├── start-dev.sh           # Start both servers
 
-│   └── stop-dev.sh            # Stop all services### Prerequisites- Resource recommendations (courses, certifications, projects)```
+│   └── stop-dev.sh            # Stop all services| **Deployment** | Netlify (frontend), Render/Railway (backend) |**LakshPath** is an AI-powered career intelligence platform designed to help students and professionals navigate their career journey through personalized assessments, smart job matching, and adaptive learning roadmaps.## Repository layout
 
 │
 
@@ -470,17 +470,501 @@ LakshPath/![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=
 
 ├── 📄 WORKFLOW.md              # Detailed workflow documentation
 
-└── 📄 LICENSE                  # MIT License- **Node.js** 18 or higher- Progress tracking and milestone management
+└── 📄 LICENSE                  # MIT License------
 
 ```
 
-- **npm** 9 or higher
+
 
 ---
 
-- **Git**### 2. Create `.env` files
+## 🚀 Quick Start
 
 ## 🔌 API Reference
+
+
+
+### Base URL
+
+```### Prerequisites## ✨ Key Features
+
+Development: http://localhost:5001/api
+
+Production: https://your-api-domain.com/api
+
+```
+
+```bashThe platform combines:```
+
+### Endpoints Overview
+
+# Required
+
+| Method | Endpoint | Description | Auth Required |
+
+|--------|----------|-------------|---------------|✅ Node.js 18+### 🧠 AI-Powered Assessments
+
+| POST | `/auth/google` | Google OAuth login | ❌ |
+
+| POST | `/assessment` | Submit assessment | ✅ |✅ npm 9+
+
+| GET | `/assessment/me` | Get user's latest assessment | ✅ |
+
+| GET | `/jobs/auto-scout/:userId` | Auto-match jobs | ✅ |✅ Git- Multi-dimensional skill evaluation (technical, communication, analytical, creativity)- **Gemini AI** for intelligent career guidance and assessmentsLakshpath/
+
+| POST | `/jobs/compare` | Compare job description | ✅ |
+
+| GET | `/market/trends/:domain` | Get market trends | ✅ |✅ Google Cloud Project (OAuth + Gemini API)
+
+| POST | `/roadmap/generate` | Generate learning roadmap | ✅ |
+
+| POST | `/chat/mentor` | AI mentorship chat | ✅ |```- Gemini-based analysis generating personalized insights
+
+| GET | `/user/profile` | Get user profile | ✅ |
+
+
+
+### Example: Submit Assessment
+
+### Installation (5 minutes)- Career path recommendations based on individual strengths- **Real-time job market analysis** with auto-scout matching├── backend/           # Express API + Prisma schema/migrations
+
+```bash
+
+curl -X POST http://localhost:5001/api/assessment \
+
+  -H "Content-Type: application/json" \
+
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \```bash
+
+  -d '{
+
+    "answers": {# 1. Clone repository
+
+      "educationLevel": "College",
+
+      "fieldInterest": "Software",git clone https://github.com/cybertech-18/LakshPath.git### 🔍 Smart Job Matching- **Personalized learning roadmaps** tailored to individual skills and goals├── frontend/          # React + Vite SPA
+
+      "technicalSkill": 4,
+
+      "communicationSkill": 4,cd LakshPath
+
+      "analyticalSkill": 4,
+
+      "creativitySkill": 3- **Auto-Scout**: Automatic job matching based on user profile
+
+    }
+
+  }'# 2. Install dependencies
+
+```
+
+npm install --prefix backend- **Manual Comparison**: Paste any job description for instant gap analysis- **Smart profile management** with fallback mechanisms for seamless user experience├── scripts/           # Setup/start/stop helpers
+
+**Response:**
+
+```jsonnpm install --prefix frontend
+
+{
+
+  "id": "assessment_id",- Intelligent fallbacks for users without completed assessments
+
+  "insights": "Based on your assessment...",
+
+  "roadmap": "Step 1: Learn React...",# 3. Setup environment files
+
+  "domain": "Software Development",
+
+  "recommendations": [chmod +x scripts/setup-env.sh├── DOCUMENTATION.md   # Deep product and UX notes
+
+    {
+
+      "career": "Full Stack Developer",./scripts/setup-env.sh
+
+      "match": 85,
+
+      "reason": "Strong technical and analytical skills"### 📊 Market Intelligence
+
+    }
+
+  ]# 4. Configure your API keys
+
+}
+
+```# Edit backend/.env and frontend/.env with your credentials- Real-time salary trends and demand metrics---├── PROJECT_SUMMARY.md # Pitch / summary deck text
+
+
+
+For complete API documentation, see **[API.md](API.md)** (coming soon)
+
+
+
+---# 5. Initialize database- Skills gap analysis for target careers
+
+
+
+## 🌐 Deploymentcd backend
+
+
+
+### Backend (Render/Railway/Fly.io)npm run prisma:generate- Industry insights and growth projections├── STATUS.md          # Engineering health log
+
+
+
+```bashnpm run prisma:migrate
+
+# Build command
+
+npm run buildcd ..
+
+
+
+# Start command
+
+npm start
+
+# 6. Start development servers### 🛤️ Personalized Roadmaps## ✨ Key Features└── README.md          # You are here
+
+# Environment variables required
+
+PORT=5001chmod +x scripts/start-dev.sh
+
+DATABASE_URL=postgresql://...
+
+GEMINI_API_KEY=..../scripts/start-dev.sh- Step-by-step learning plans generated by AI
+
+GOOGLE_CLIENT_ID=...
+
+CLIENT_ORIGIN=https://your-frontend.com```
+
+JWT_SECRET=...
+
+```- Resource recommendations (courses, certifications, projects)```
+
+
+
+### Frontend (Netlify/Vercel)### Access the Application
+
+
+
+```bash- Progress tracking and milestone management
+
+# Build command
+
+npm run build- 🌐 **Frontend**: http://localhost:3001
+
+
+
+# Publish directory- 🔌 **Backend API**: http://localhost:5001### 🧠 AI-Powered Assessments
+
+dist
+
+- ✅ **Health Check**: http://localhost:5001/health
+
+# Environment variables
+
+VITE_API_BASE_URL=https://your-api.com/api### 🔐 Secure Authentication
+
+VITE_GOOGLE_CLIENT_ID=...
+
+```---
+
+
+
+### Deploy with One Click- Google OAuth 2.0 integration- Multi-dimensional skill evaluation (technical, communication, analytical, creativity)## Prerequisites
+
+
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cybertech-18/LakshPath)## 📖 Workflow Guide
+
+
+
+---- JWT-based session management
+
+
+
+## 🧪 TestingFor a comprehensive understanding of the platform workflow, see **[WORKFLOW.md](WORKFLOW.md)**
+
+
+
+```bash- Protected routes and data privacy- Gemini-based analysis generating personalized insights
+
+# Backend health check
+
+curl http://localhost:5001/health### Quick Workflow Overview
+
+
+
+# Run demo assessment
+
+npm run test:assessment
+
+```
+
+# Test job matching
+
+npm run test:jobs1. User Sign-In (Google OAuth)---- Career path recommendations based on individual strengths- Node.js 18+
+
+
+
+# Frontend E2E tests (coming soon)   ↓
+
+npm run test:e2e
+
+```2. Complete Career Assessment (Quiz)
+
+
+
+---   ↓
+
+
+
+## 🐛 Troubleshooting3. Gemini AI Analysis## 🛠️ Tech Stack- npm 9+
+
+
+
+<details>   ↓
+
+<summary><strong>Port Already in Use</strong></summary>
+
+4. Receive Personalized Insights & Roadmap
+
+```bash
+
+# Find process on port 5001   ↓
+
+lsof -i :5001
+
+5. Auto-Scout Job Matching<div align="center">### 🔍 Smart Job Matching- Google Cloud project with OAuth credentials + Gemini API access
+
+# Kill the process
+
+kill -9 <PID>   ↓
+
+```
+
+</details>6. View Market Trends & Skills Gap
+
+
+
+<details>   ↓
+
+<summary><strong>Google OAuth Failed</strong></summary>
+
+7. Access Learning Resources & Mentorship Chat### Frontend- **Auto-Scout**: Automatic job-description matching based on user profile- Git, cURL, jq (for quick smoke tests)
+
+- Verify `GOOGLE_CLIENT_ID` matches in both frontend and backend
+
+- Check authorized origins in Google Cloud Console```
+
+- Ensure redirect URIs are configured correctly
+
+</details>![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+
+
+
+<details>---
+
+<summary><strong>Gemini API Errors</strong></summary>
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)- **Manual Comparison**: Paste any job description for instant gap analysis
+
+- Verify API key at [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+- Check quota limits## 📁 Project Structure
+
+- Ensure model name is `gemini-2.0-flash` or `gemini-1.5-flash`
+
+</details>![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+
+
+
+<details>```
+
+<summary><strong>Database Connection Failed</strong></summary>
+
+LakshPath/![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)- Handles users without assessments gracefully with intelligent defaults## Setup
+
+```bash
+
+# Reset database│
+
+cd backend
+
+rm -f prisma/dev.db├── 📂 backend/                 # Express + TypeScript API
+
+npm run prisma:migrate
+
+npm run prisma:generate│   ├── src/
+
+```
+
+</details>│   │   ├── config/            # Environment configuration### Backend
+
+
+
+---│   │   ├── controllers/       # Request handlers
+
+
+
+## 🤝 Contributing│   │   ├── services/          # Business logic layer![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+
+
+
+We welcome contributions! Here's how you can help:│   │   │   ├── geminiService.ts      # AI integration
+
+
+
+1. 🍴 Fork the repository│   │   │   ├── assessmentService.ts  # Assessment logic![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)### 📊 Market Intelligence### 1. Clone and install
+
+2. 🌿 Create a feature branch (`git checkout -b feature/amazing-feature`)
+
+3. 💾 Commit your changes (`git commit -m 'Add amazing feature'`)│   │   │   ├── jobsService.ts        # Job matching
+
+4. 📤 Push to branch (`git push origin feature/amazing-feature`)
+
+5. 🔃 Open a Pull Request│   │   │   └── marketService.ts      # Market data![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+
+
+
+### Contribution Guidelines│   │   ├── routes/            # API endpoints
+
+
+
+- ✅ Follow existing code style│   │   ├── middleware/        # Auth & error handling![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)- Real-time salary trends and demand metrics
+
+- ✅ Write meaningful commit messages
+
+- ✅ Add tests for new features│   │   ├── lib/               # Utilities (Prisma, engines)
+
+- ✅ Update documentation
+
+- ✅ Run `npm run lint` before committing│   │   └── types/             # TypeScript definitions
+
+
+
+---│   ├── prisma/
+
+
+
+## 📊 Roadmap│   │   ├── schema.prisma      # Database models### AI & Services- Skills gap analysis for target careers```bash
+
+
+
+- [x] Core assessment engine│   │   └── migrations/        # Version-controlled migrations
+
+- [x] Google OAuth integration
+
+- [x] Gemini AI integration│   └── package.json![Google Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
+- [x] Job auto-scout feature
+
+- [x] Market intelligence dashboard│
+
+- [ ] Skills endorsement system
+
+- [ ] Peer-to-peer mentorship├── 📂 frontend/                # React SPA![OAuth](https://img.shields.io/badge/OAuth_2.0-3C873A?style=for-the-badge&logo=auth0&logoColor=white)- Industry insights and growth projectionsgit clone https://github.com/iayus-grow/ayush18.git
+
+- [ ] Mobile app (React Native)
+
+- [ ] Advanced analytics dashboard│   ├── src/
+
+- [ ] Multi-language support
+
+│   │   ├── components/        # Reusable UI components
+
+---
+
+│   │   ├── pages/             # Route components
+
+## 📄 License
+
+│   │   │   ├── LandingPageNew.tsx    # Landing</div>cd ayush18/Lakshpath
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+│   │   │   ├── LoginNew.tsx          # Authentication
+
+---
+
+│   │   │   ├── QuizIntro.tsx         # Assessment intro
+
+## 👥 Team
+
+│   │   │   ├── AssessmentQuiz.tsx    # Quiz flow
+
+**Lead Developer**: [Ayush Pathak](https://github.com/cybertech-18)
+
+│   │   │   └── DashboardNew.tsx      # Main dashboard---### 🛤️ Personalized Roadmapsnpm install --prefix frontend
+
+**Contact**:
+
+- 📧 Email: ayushap18@lakshpath.in│   │   ├── services/          # API client
+
+- 💼 LinkedIn: [LakshPath](https://linkedin.com/company/lakshpath)
+
+- 🐙 GitHub: [@cybertech-18](https://github.com/cybertech-18)│   │   └── types/             # TypeScript interfaces
+
+
+
+---│   └── package.json
+
+
+
+## 🙏 Acknowledgments│## 🚀 Getting Started- Step-by-step learning plans generated by AInpm install --prefix backend
+
+
+
+- **Google Gemini AI** - Powering intelligent insights├── 📂 scripts/                 # Developer utilities
+
+- **Prisma Team** - Exceptional ORM
+
+- **Vercel** - Amazing deployment platform│   ├── setup-env.sh           # Environment setup
+
+- **React Community** - Incredible ecosystem
+
+│   ├── start-dev.sh           # Start both servers
+
+---
+
+│   └── stop-dev.sh            # Stop all services### Prerequisites- Resource recommendations (courses, certifications, projects)```
+
+<div align="center">
+
+│
+
+### 🌟 If you find this project helpful, please star it!
+
+├── 📄 README.md                # This file
+
+[![GitHub stars](https://img.shields.io/github/stars/cybertech-18/LakshPath?style=social)](https://github.com/cybertech-18/LakshPath/stargazers)
+
+├── 📄 WORKFLOW.md              # Detailed workflow documentation
+
+<p>
+
+  <a href="https://github.com/cybertech-18/LakshPath/issues/new?labels=bug">🐛 Report Bug</a>└── 📄 LICENSE                  # MIT License- **Node.js** 18 or higher- Progress tracking and milestone management
+
+  ·
+
+  <a href="https://github.com/cybertech-18/LakshPath/issues/new?labels=enhancement">✨ Request Feature</a>```
+
+  ·
+
+  <a href="WORKFLOW.md">📖 Read Workflow Guide</a>- **npm** 9 or higher
+
+</p>
+
+---
+
+**Built with ❤️ to empower careers through AI**
+
+- **Git**### 2. Create `.env` files
+
+Made in India 🇮🇳 | Empowering 130M+ students
+
+## 🔌 API Reference
+
+</div>
 
 - **Google Cloud Project** with:
 
