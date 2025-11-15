@@ -1,4 +1,3 @@
-<div align="center"><div align="center"><div align="center"><div align="center">## Unified dev scripts
 
 
 
@@ -2194,8 +2193,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Tailwind CSS** - Utility-first styling
 
 ---
-
-<div align="center">
   <p><strong>Built with ❤️ to empower careers through AI</strong></p>
   <p>
     <a href="https://github.com/cybertech-18/LakshPath/issues">Report Bug</a>
