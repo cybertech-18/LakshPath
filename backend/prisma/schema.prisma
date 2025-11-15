@@ -1,0 +1,195 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String?  @unique
+  googleId     String?  @unique
+  name         String?
+  passwordHash String?
+  role         String   @default("USER")
+  avatarUrl    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  quizResults    QuizResult[]
+  insights       Insight[]
+  goalContracts  GoalContract[]
+  jdComparisons  JDComparison[]
+  skillSnapshots SkillSnapshot[]
+  demoRuns       DemoRun[]
+  roadmaps       LearningRoadmap[]
+}
+
+model QuizResult {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  answers    String
+  summary    String
+  strengths  String?
+  weaknesses String?
+  advice     String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  careerMatches CareerMatch[]
+  roadmap        LearningRoadmap?
+}
+
+model CareerMatch {
+  id           String     @id @default(cuid())
+  quizResultId String
+  quizResult   QuizResult @relation(fields: [quizResultId], references: [id], onDelete: Cascade)
+  title        String
+  matchScore   Int
+  description  String
+  avgSalary    String?
+  growthRate   String?
+  keySkills    String
+  reason       String?
+  createdAt    DateTime @default(now())
+}
+
+model LearningRoadmap {
+  id           String    @id @default(cuid())
+  quizResultId String?  @unique
+  quizResult   QuizResult? @relation(fields: [quizResultId], references: [id], onDelete: Cascade)
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title        String
+  duration     String?
+  summary      String?
+  source       String    @default("gemini")
+  aiPlan       String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  milestones RoadmapMilestone[]
+}
+
+model RoadmapMilestone {
+  id          String           @id @default(cuid())
+  roadmapId   String
+  roadmap     LearningRoadmap  @relation(fields: [roadmapId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  duration    String?
+  status      String          @default("PENDING")
+  resources   String?
+  position    Int             @default(0)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  smartGoal   GoalContract?
+}
+
+model GoalContract {
+  id              String            @id @default(cuid())
+  userId          String
+  user            User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  milestoneId     String?           @unique
+  milestone       RoadmapMilestone? @relation(fields: [milestoneId], references: [id])
+  title           String
+  description     String?
+  startDate       DateTime
+  endDate         DateTime
+  successCriteria String
+  streakCount     Int               @default(0)
+  status          String            @default("ACTIVE")
+  nudges          String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model Insight {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  source    String   @default("GEMINI")
+  prompt    String
+  response  String
+  summary   String
+  type      String
+  metadata  String?
+  createdAt DateTime @default(now())
+}
+
+model JDComparison {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  jobTitle       String
+  company        String?
+  jobDescription String
+  summary        String?
+  matches        String?
+  gaps           String?
+  suggestions    String?
+  fastTrack      String?
+  source         String   @default("MANUAL")
+  jobMeta        String?
+  createdAt      DateTime @default(now())
+}
+
+model SkillSnapshot {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skillName     String
+  score         Int
+  lastRefreshed DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  microTasks MicroTask[]
+
+  @@unique([userId, skillName])
+}
+
+model MicroTask {
+  id             String        @id @default(cuid())
+  skillSnapshotId String
+  skillSnapshot  SkillSnapshot @relation(fields: [skillSnapshotId], references: [id], onDelete: Cascade)
+  title          String
+  description    String?
+  resourceUrl    String?
+  status         String        @default("PENDING")
+  createdAt      DateTime      @default(now())
+  completedAt    DateTime?
+}
+
+model DemoRun {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  scenario  String
+  payload   String
+  createdAt DateTime @default(now())
+}
+
+model MarketSnapshot {
+  id        String   @id @default(cuid())
+  domain    String
+  source    String?
+  payload   String
+  metadata  String?
+  createdAt DateTime @default(now())
+}
+
+model MarketBrief {
+  id              String   @id @default(cuid())
+  domain          String
+  title           String
+  deltaSummary    String
+  recommendations String
+  snapshotIds     String?
+  metadata        String?
+  createdAt       DateTime @default(now())
+}
