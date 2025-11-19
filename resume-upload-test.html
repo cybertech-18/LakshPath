@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LakshPath Resume Analyzer - File Upload</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9ff;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .upload-area:hover {
+            border-color: #764ba2;
+            background: #f0f1ff;
+        }
+        
+        .upload-area.dragover {
+            border-color: #764ba2;
+            background: #e8e9ff;
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .file-info {
+            background: #e8f5e9;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .file-info.show {
+            display: block;
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result.success {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+        }
+        
+        .result.error {
+            background: #ffebee;
+            border: 2px solid #f44336;
+        }
+        
+        .score-card {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .score-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .score-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .score-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .list-section {
+            margin-top: 20px;
+        }
+        
+        .list-section h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .list-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .list-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .list-section li:before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Resume Analyzer</h1>
+        <p class="subtitle">Upload your resume and get instant AI-powered feedback</p>
+        
+        <form id="uploadForm">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📤</div>
+                <p><strong>Click to upload</strong> or drag and drop</p>
+                <p style="font-size: 12px; color: #999; margin-top: 8px;">PDF, DOCX, or TXT (Max 10MB)</p>
+                <input type="file" id="fileInput" accept=".pdf,.docx,.txt" required>
+            </div>
+            
+            <div class="file-info" id="fileInfo">
+                <strong>📎 Selected:</strong> <span id="fileName"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="userId">User ID (optional)</label>
+                <input type="text" id="userId" placeholder="Enter your user ID">
+            </div>
+            
+            <div class="form-group">
+                <label for="jobDescription">Target Job Description (optional)</label>
+                <textarea id="jobDescription" placeholder="Paste the job description here to get match score..."></textarea>
+            </div>
+            
+            <button type="submit" id="analyzeBtn">Analyze Resume</button>
+        </form>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analyzing your resume with AI...</p>
+        </div>
+        
+        <div class="result" id="result">
+            <h2 id="resultTitle">Analysis Complete!</h2>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const uploadForm = document.getElementById('uploadForm');
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+
+        // Click to upload
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        // File selected
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                fileName.textContent = e.target.files[0].name;
+                fileInfo.classList.add('show');
+            }
+        });
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                fileName.textContent = e.dataTransfer.files[0].name;
+                fileInfo.classList.add('show');
+            }
+        });
+
+        // Form submission
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Please select a file');
+                return;
+            }
+            
+            // Show loading
+            loading.classList.add('show');
+            result.classList.remove('show');
+            analyzeBtn.disabled = true;
+            
+            // Create FormData
+            const formData = new FormData();
+            formData.append('data', file);
+            formData.append('userId', document.getElementById('userId').value || 'guest');
+            formData.append('jobDescription', document.getElementById('jobDescription').value);
+            
+            try {
+                // Upload to n8n webhook
+                const response = await fetch('http://localhost:5678/webhook/resume-upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                // Hide loading
+                loading.classList.remove('show');
+                analyzeBtn.disabled = false;
+                
+                // Show result
+                if (data.success) {
+                    showSuccessResult(data);
+                } else {
+                    showErrorResult(data);
+                }
+            } catch (error) {
+                loading.classList.remove('show');
+                analyzeBtn.disabled = false;
+                showErrorResult({ error: 'Network error', details: error.message });
+            }
+        });
+
+        function showSuccessResult(data) {
+            const analysis = data.analysis;
+            
+            result.className = 'result success show';
+            document.getElementById('resultTitle').textContent = '✅ Analysis Complete!';
+            
+            document.getElementById('resultContent').innerHTML = `
+                <div class="score-card">
+                    <div class="score-item">
+                        <div class="score-value">${analysis.overallScore}</div>
+                        <div class="score-label">Overall Score</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="score-value">${analysis.atsScore}</div>
+                        <div class="score-label">ATS Score</div>
+                    </div>
+                </div>
+                
+                <div class="list-section">
+                    <h3>💪 Strengths</h3>
+                    <ul>
+                        ${analysis.strengths.map(s => `<li>${s}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="list-section">
+                    <h3>⚠️ Areas to Improve</h3>
+                    <ul>
+                        ${analysis.weaknesses.map(w => `<li>${w}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="list-section">
+                    <h3>🎯 Recommendations</h3>
+                    <ul>
+                        ${analysis.recommendations.map(r => `<li>${r}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        function showErrorResult(data) {
+            result.className = 'result error show';
+            document.getElementById('resultTitle').textContent = '❌ Analysis Failed';
+            
+            document.getElementById('resultContent').innerHTML = `
+                <p><strong>Error:</strong> ${data.error}</p>
+                <p>${data.details || data.message || 'Please try again'}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

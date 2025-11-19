@@ -82,7 +82,7 @@ export interface UserProgressResponse {
 
 // Create axios instance with base configuration
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://192.168.1.5:5001/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -130,6 +130,8 @@ export const authAPI = {
 
   googleLogin: (credential: string) =>
     api.post('/auth/google', { credential }),
+
+  demoLogin: () => api.post('/auth/demo'),
 };
 
 // Assessment API calls

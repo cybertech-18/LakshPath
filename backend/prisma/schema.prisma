@@ -15,6 +15,8 @@ model User {
   passwordHash String?
   role         String   @default("USER")
   avatarUrl    String?
+  lastLoginAt  DateTime?
+  loginCount   Int      @default(0)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
@@ -25,6 +27,7 @@ model User {
   skillSnapshots SkillSnapshot[]
   demoRuns       DemoRun[]
   roadmaps       LearningRoadmap[]
+  loginLogs      LoginLog[]
 }
 
 model QuizResult {
@@ -192,4 +195,18 @@ model MarketBrief {
   snapshotIds     String?
   metadata        String?
   createdAt       DateTime @default(now())
+}
+
+model LoginLog {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  method      String   // 'GOOGLE', 'EMAIL', 'DEMO'
+  ipAddress   String?
+  userAgent   String?
+  success     Boolean  @default(true)
+  failReason  String?
+  createdAt   DateTime @default(now())
+  
+  @@index([userId, createdAt])
 }

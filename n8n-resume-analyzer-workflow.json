@@ -1,0 +1,309 @@
+{
+  "name": "LakshPath Resume Analyzer",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "resume-analyze",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook - Resume Upload",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "lakshpath-resume-analyzer"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.resumeUrl }}",
+              "operation": "isNotEmpty"
+            },
+            {
+              "value1": "={{ $json.body.userId }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "validate-input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.body.resumeUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "download-resume",
+      "name": "Download Resume File",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [650, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract text from PDF/DOCX resume\nconst items = $input.all();\nconst results = [];\n\nfor (const item of items) {\n  try {\n    // Get the binary data\n    const binaryData = await this.helpers.getBinaryDataBuffer(item.binary.data);\n    \n    // For PDF files, extract text\n    // Note: You'll need to install pdf-parse package in n8n\n    let resumeText = '';\n    \n    if (item.json.headers['content-type']?.includes('pdf')) {\n      // PDF parsing would go here\n      // For now, we'll use a placeholder\n      resumeText = 'PDF content extraction placeholder - install pdf-parse node';\n    } else if (item.json.headers['content-type']?.includes('text')) {\n      resumeText = binaryData.toString('utf-8');\n    } else {\n      resumeText = 'Unsupported file format';\n    }\n    \n    results.push({\n      json: {\n        userId: $node['Webhook - Resume Upload'].json.body.userId,\n        jobDescription: $node['Webhook - Resume Upload'].json.body.jobDescription || '',\n        resumeText: resumeText,\n        fileName: item.json.fileName || 'resume.pdf'\n      }\n    });\n  } catch (error) {\n    results.push({\n      json: {\n        error: 'Text extraction failed',\n        details: error.message\n      }\n    });\n  }\n}\n\nreturn results;"
+      },
+      "id": "extract-text",
+      "name": "Extract Text from Resume",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Prepare prompt for Gemini AI\nconst items = $input.all();\nconst results = [];\n\nfor (const item of items) {\n  const resumeText = item.json.resumeText;\n  const jobDescription = item.json.jobDescription;\n  \n  const prompt = `You are an expert resume analyzer for LakshPath, an AI-powered career intelligence platform.\n\nAnalyze the following resume and provide a comprehensive assessment.\n\n=== RESUME CONTENT ===\n${resumeText}\n\n${jobDescription ? `=== TARGET JOB ===\\n${jobDescription}\\n` : ''}\n\n=== ANALYSIS REQUIRED ===\nProvide your analysis in the following JSON format (return ONLY valid JSON, no markdown):\n\n{\n  \"overallScore\": 85,\n  \"atsScore\": 78,\n  \"strengths\": [\n    \"Clear career progression with quantifiable achievements\",\n    \"Strong technical skill set aligned with industry standards\",\n    \"Relevant education and certifications\"\n  ],\n  \"weaknesses\": [\n    \"Lacks specific leadership examples\",\n    \"Missing industry-specific certifications\",\n    \"Could improve formatting for ATS systems\"\n  ],\n  \"sections\": {\n    \"experience\": {\n      \"score\": 90,\n      \"feedback\": \"Excellent work history with clear achievements and impact metrics. Shows strong career growth.\"\n    },\n    \"skills\": {\n      \"score\": 80,\n      \"feedback\": \"Good technical skills coverage, but missing some emerging technologies and soft skills.\"\n    },\n    \"education\": {\n      \"score\": 85,\n      \"feedback\": \"Relevant educational background with strong academic performance.\"\n    },\n    \"format\": {\n      \"score\": 75,\n      \"feedback\": \"Clean layout but needs optimization for Applicant Tracking Systems (ATS).\"\n    }\n  },\n  \"keySkills\": [\"Python\", \"React\", \"AWS\", \"Team Leadership\", \"Agile\"],\n  \"missingSkills\": [\"Docker\", \"Kubernetes\", \"CI/CD\", \"Microservices\"],\n  \"recommendations\": [\n    \"Add quantifiable metrics to each achievement (e.g., 'increased efficiency by 40%')\",\n    \"Include relevant certifications like AWS Certified Solutions Architect\",\n    \"Optimize keywords for ATS by matching job description terminology\",\n    \"Add a professional summary highlighting unique value proposition\",\n    \"Include links to portfolio, GitHub, or LinkedIn profile\"\n  ],\n  \"matchScore\": ${jobDescription ? '85' : 'null'},\n  \"careerLevel\": \"Mid-Senior Level\",\n  \"suggestedRoles\": [\"Senior Software Engineer\", \"Tech Lead\", \"Engineering Manager\"]\n}\n\nAnalyze thoroughly and provide actionable insights.`;\n  \n  results.push({\n    json: {\n      userId: item.json.userId,\n      fileName: item.json.fileName,\n      prompt: prompt,\n      jobDescription: item.json.jobDescription\n    }\n  });\n}\n\nreturn results;"
+      },
+      "id": "prepare-prompt",
+      "name": "Prepare AI Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "={{ $env.GEMINI_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "contents",
+              "value": "={{ [{\"parts\": [{\"text\": $json.prompt}]}] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "gemini-analysis",
+      "name": "Gemini AI Analysis",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Gemini AI response and extract structured data\nconst items = $input.all();\nconst results = [];\n\nfor (const item of items) {\n  try {\n    // Extract the AI response\n    const geminiResponse = item.json.candidates[0].content.parts[0].text;\n    \n    // Remove markdown code blocks if present\n    let jsonText = geminiResponse\n      .replace(/```json\\n?/g, '')\n      .replace(/```\\n?/g, '')\n      .trim();\n    \n    // Parse the JSON\n    const analysis = JSON.parse(jsonText);\n    \n    // Get original data from previous node\n    const prepareNode = $node['Prepare AI Prompt'].json;\n    \n    results.push({\n      json: {\n        userId: prepareNode.userId,\n        fileName: prepareNode.fileName,\n        analysis: analysis,\n        timestamp: new Date().toISOString(),\n        hasJobMatch: !!prepareNode.jobDescription\n      }\n    });\n  } catch (error) {\n    // If parsing fails, return error\n    results.push({\n      json: {\n        error: 'Failed to parse AI response',\n        details: error.message,\n        rawResponse: item.json.candidates?.[0]?.content?.parts?.[0]?.text || 'No response'\n      }\n    });\n  }\n}\n\nreturn results;"
+      },
+      "id": "parse-response",
+      "name": "Parse AI Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format the final response\nconst items = $input.all();\nconst results = [];\n\nfor (const item of items) {\n  if (item.json.error) {\n    // Return error response\n    results.push({\n      json: {\n        success: false,\n        error: item.json.error,\n        details: item.json.details\n      }\n    });\n  } else {\n    // Format success response\n    const analysis = item.json.analysis;\n    \n    results.push({\n      json: {\n        success: true,\n        userId: item.json.userId,\n        fileName: item.json.fileName,\n        timestamp: item.json.timestamp,\n        summary: {\n          overallScore: analysis.overallScore,\n          atsScore: analysis.atsScore,\n          matchScore: analysis.matchScore,\n          careerLevel: analysis.careerLevel\n        },\n        strengths: analysis.strengths,\n        weaknesses: analysis.weaknesses,\n        sections: analysis.sections,\n        skills: {\n          current: analysis.keySkills,\n          missing: analysis.missingSkills\n        },\n        recommendations: analysis.recommendations,\n        suggestedRoles: analysis.suggestedRoles || [],\n        detailedAnalysis: analysis\n      }\n    });\n  }\n}\n\nreturn results;"
+      },
+      "id": "format-response",
+      "name": "Format Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1650, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "id": "respond-webhook",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1850, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Error handler - return error response\nconst items = $input.all();\nconst results = [];\n\nfor (const item of items) {\n  results.push({\n    json: {\n      success: false,\n      error: \"Invalid input\",\n      message: \"Missing required fields: userId or resumeUrl\",\n      required: {\n        userId: \"User ID is required\",\n        resumeUrl: \"Resume URL or file upload is required\"\n      },\n      example: {\n        userId: \"user123\",\n        resumeUrl: \"https://example.com/resume.pdf\",\n        jobDescription: \"Optional: Senior Software Engineer role...\"\n      }\n    }\n  });\n}\n\nreturn results;"
+      },
+      "id": "error-handler",
+      "name": "Error - Invalid Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 400]
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "id": "respond-error",
+      "name": "Respond Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [850, 400]
+    },
+    {
+      "parameters": {
+        "mode": "jsonToBinary",
+        "options": {
+          "fileName": "=resume-analysis-{{ $json.userId }}.json"
+        }
+      },
+      "id": "save-json",
+      "name": "Save Analysis (Optional)",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1,
+      "position": [1650, 350]
+    }
+  ],
+  "connections": {
+    "Webhook - Resume Upload": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Download Resume File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error - Invalid Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Resume File": {
+      "main": [
+        [
+          {
+            "node": "Extract Text from Resume",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Text from Resume": {
+      "main": [
+        [
+          {
+            "node": "Prepare AI Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare AI Prompt": {
+      "main": [
+        [
+          {
+            "node": "Gemini AI Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini AI Analysis": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Response": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Response": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save Analysis (Optional)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error - Invalid Input": {
+      "main": [
+        [
+          {
+            "node": "Respond Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "LakshPath",
+      "id": "lakshpath"
+    },
+    {
+      "name": "AI",
+      "id": "ai"
+    },
+    {
+      "name": "Resume",
+      "id": "resume"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-19T21:30:00.000Z",
+  "versionId": "1"
+}

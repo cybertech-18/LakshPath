@@ -11,7 +11,7 @@ import {
   Phone, MapPinned, TrendingDown, Linkedin, FileText,
   ArrowUpRight, Gauge, UserPlus, Loader2, Send, RefreshCcw
 } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { assessmentAPI, chatAPI, marketAPI, jobsAPI, insightsAPI, userAPI } from '../services/api';
 import type { MentorChatResponse, UserProfileResponse, UserProgressResponse } from '../services/api';
 
@@ -1804,47 +1804,142 @@ const DashboardNew = () => {
               </motion.div>
             </div>
 
-            {/* Progress Chart */}
+            {/* Learning Progress Chart */}
             <motion.div
-              className="bg-white/5 border border-white/10 p-8 rounded-sm"
+              className="bg-gradient-to-br from-white/10 to-white/5 border border-white/20 p-8 rounded-lg shadow-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-3xl font-black uppercase">Learning Progress</h3>
+                <div>
+                  <h3 className="text-3xl font-black uppercase bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent">
+                    Learning Progress
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-2">Track your growth over time</p>
+                </div>
                 <motion.button
                   onClick={() => showToast('Download feature coming soon!')}
-                  className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-sm hover:bg-white/10 transition"
-                  whileHover={{ scale: 1.05 }}
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-blue-600 rounded-lg hover:from-primary-500 hover:to-blue-500 transition-all shadow-lg hover:shadow-primary-500/50"
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Download className="w-4 h-4" />
-                  <span className="font-bold text-sm">EXPORT</span>
+                  <Download className="w-5 h-5" />
+                  <span className="font-bold text-sm">EXPORT REPORT</span>
                 </motion.button>
               </div>
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={progressData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis dataKey="month" stroke="#666" />
-                  <YAxis stroke="#666" />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#000', 
-                      border: '1px solid #333',
-                      borderRadius: '4px',
-                      color: '#fff'
-                    }}
-                  />
-                  <Line 
-                    type="monotone" 
-                    dataKey="progress" 
-                    stroke="#6366f1" 
-                    strokeWidth={3}
-                    dot={{ fill: '#6366f1', r: 6 }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
+              
+              <div className="grid lg:grid-cols-3 gap-6">
+                {/* Line Chart - Progress Trend */}
+                <div className="lg:col-span-2 bg-black/40 p-6 rounded-lg border border-white/10">
+                  <div className="flex items-center gap-2 mb-4">
+                    <TrendingUp className="w-5 h-5 text-green-400" />
+                    <h4 className="text-lg font-bold uppercase text-gray-200">Progress Trend</h4>
+                  </div>
+                  <ResponsiveContainer width="100%" height={280}>
+                    <LineChart data={progressData}>
+                      <defs>
+                        <linearGradient id="progressGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3}/>
+                          <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#333" opacity={0.3} />
+                      <XAxis 
+                        dataKey="month" 
+                        stroke="#888" 
+                        style={{ fontSize: '12px', fontWeight: 'bold' }}
+                        tick={{ fill: '#888' }}
+                      />
+                      <YAxis 
+                        stroke="#888" 
+                        style={{ fontSize: '12px', fontWeight: 'bold' }}
+                        tick={{ fill: '#888' }}
+                        label={{ value: 'Progress %', angle: -90, position: 'insideLeft', fill: '#888' }}
+                      />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#1a1a1a', 
+                          border: '1px solid #6366f1',
+                          borderRadius: '8px',
+                          color: '#fff',
+                          padding: '12px',
+                          boxShadow: '0 4px 6px rgba(0,0,0,0.3)'
+                        }}
+                        labelStyle={{ color: '#6366f1', fontWeight: 'bold', marginBottom: '4px' }}
+                        itemStyle={{ color: '#fff' }}
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="progress" 
+                        stroke="#6366f1" 
+                        strokeWidth={4}
+                        dot={{ fill: '#6366f1', r: 6, strokeWidth: 2, stroke: '#fff' }}
+                        activeDot={{ r: 8, fill: '#818cf8', stroke: '#fff', strokeWidth: 2 }}
+                        fill="url(#progressGradient)"
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+
+                {/* Pie Chart - Skills Distribution */}
+                <div className="bg-black/40 p-6 rounded-lg border border-white/10">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Target className="w-5 h-5 text-blue-400" />
+                    <h4 className="text-lg font-bold uppercase text-gray-200">Skills Balance</h4>
+                  </div>
+                  <ResponsiveContainer width="100%" height={280}>
+                    <PieChart>
+                      <Pie
+                        data={[
+                          { name: 'Technical', value: 35, fill: '#6366f1' },
+                          { name: 'Soft Skills', value: 25, fill: '#818cf8' },
+                          { name: 'Domain', value: 20, fill: '#3b82f6' },
+                          { name: 'Leadership', value: 20, fill: '#60a5fa' },
+                        ]}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={100}
+                        paddingAngle={3}
+                        dataKey="value"
+                      >
+                        {[
+                          { name: 'Technical', value: 35, fill: '#6366f1' },
+                          { name: 'Soft Skills', value: 25, fill: '#818cf8' },
+                          { name: 'Domain', value: 20, fill: '#3b82f6' },
+                          { name: 'Leadership', value: 20, fill: '#60a5fa' },
+                        ].map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.fill} />
+                        ))}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#1a1a1a', 
+                          border: '1px solid #6366f1',
+                          borderRadius: '8px',
+                          padding: '8px 12px',
+                          fontSize: '12px'
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className="grid grid-cols-2 gap-2 mt-4">
+                    {[
+                      { name: 'Technical', color: '#6366f1', value: '35%' },
+                      { name: 'Soft Skills', color: '#818cf8', value: '25%' },
+                      { name: 'Domain', color: '#3b82f6', value: '20%' },
+                      { name: 'Leadership', color: '#60a5fa', value: '20%' },
+                    ].map((skill) => (
+                      <div key={skill.name} className="flex items-center gap-2 text-xs">
+                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: skill.color }} />
+                        <span className="text-gray-400">{skill.name}</span>
+                        <span className="font-bold text-white ml-auto">{skill.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Quick Actions */}

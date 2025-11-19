@@ -6,6 +6,7 @@ import { authenticate } from '@middleware/authenticate';
 const router = Router();
 
 router.post('/google', authController.googleSignIn);
+router.post('/demo', authController.demoSignIn);
 router.get('/me', authenticate, authController.getCurrentUser);
 
 router.post('/logout', (_req: Request, res: Response) => {

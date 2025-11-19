@@ -19,6 +19,17 @@ const envSchema = zod_1.z.object({
         .enum(['true', 'false'])
         .default('true')
         .transform((value) => value === 'true'),
+    FRONTEND_URL: zod_1.z.string().default('http://localhost:3000'),
+    SMTP_HOST: zod_1.z.string().optional(),
+    SMTP_PORT: zod_1.z.string().default('587'),
+    SMTP_USER: zod_1.z.string().optional(),
+    SMTP_PASS: zod_1.z.string().optional(),
+    SMTP_FROM: zod_1.z.string().default('noreply@lakshpath.ai'),
+    SMTP_SECURE: zod_1.z.string().default('false'),
+    EMAIL_ENABLED: zod_1.z
+        .enum(['true', 'false'])
+        .default('false')
+        .transform((value) => value === 'true'),
 });
 const env = envSchema.parse(process.env);
 exports.default = env;

@@ -55,3 +55,7 @@ frontend-dev.pid
 .cache/
 .temp/
 *.tmp
+
+# Netlify
+.netlify/
+frontend/.netlify/

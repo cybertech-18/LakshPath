@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
-import { Target } from 'lucide-react';
+import { Target, User } from 'lucide-react';
 
 import { authAPI } from '../services/api';
 
 const Login = () => {
   const navigate = useNavigate();
   const [oauthLoading, setOauthLoading] = useState(false);
+  const [demoLoading, setDemoLoading] = useState(false);
 
   const persistSession = (token: string, user: { id: string; name?: string | null; email?: string | null }) => {
     const fallbackName = user.email ? user.email.split('@')[0] : 'Explorer';
@@ -46,6 +47,20 @@ const Login = () => {
       alert('Google sign-in failed. Please try again.');
     } finally {
       setOauthLoading(false);
+    }
+  };
+
+  const handleDemoLogin = async () => {
+    setDemoLoading(true);
+    try {
+      const { data } = await authAPI.demoLogin();
+      persistSession(data.token, data.user);
+      navigateAfterLogin();
+    } catch (error) {
+      console.error('Demo login failed', error);
+      alert('Unable to start demo session. Please check your connection.');
+    } finally {
+      setDemoLoading(false);
     }
   };
 
@@ -112,45 +127,41 @@ const Login = () => {
         >
           <h2 className="text-3xl font-black mb-6 text-center">SIGN IN</h2>
 
-          <motion.div
-            className="p-5 bg-primary-500/10 border border-primary-500/30"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            <p className="text-sm text-primary-100 font-semibold uppercase tracking-[0.3em] mb-2">
-              EMAIL LOGIN COMING SOON
-            </p>
-            <p className="text-gray-200 leading-relaxed">
-              We are finalizing the secure email/password flow. For now, please continue with Google Sign-In so your session stays fully verified end-to-end.
-            </p>
-            <p className="text-xs text-gray-400 mt-3">
-              Need manual access? Reach out at <a className="text-white" href="mailto:ayushap18@lakshpath.in">ayushap18@lakshpath.in</a> and we’ll prioritize your account.
-            </p>
-          </motion.div>
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-center relative">
+              <GoogleLogin
+                onSuccess={handleGoogleSuccess}
+                onError={handleGoogleError}
+                useOneTap
+                shape="pill"
+                logo_alignment="center"
+                theme="outline"
+                width="280"
+                text="signin_with"
+              />
+              {oauthLoading && (
+                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-xs font-semibold">
+                  Connecting...
+                </div>
+              )}
+            </div>
 
-          <div className="my-6 flex items-center gap-4">
-            <span className="h-px flex-1 bg-white/10" />
-            <span className="text-xs uppercase tracking-[0.3em] text-gray-500">or</span>
-            <span className="h-px flex-1 bg-white/10" />
-          </div>
+            <div className="flex items-center gap-4 my-2">
+              <span className="h-px flex-1 bg-white/10" />
+              <span className="text-xs uppercase tracking-[0.3em] text-gray-500">or</span>
+              <span className="h-px flex-1 bg-white/10" />
+            </div>
 
-          <div className="flex justify-center relative">
-            <GoogleLogin
-              onSuccess={handleGoogleSuccess}
-              onError={handleGoogleError}
-              useOneTap
-              shape="pill"
-              logo_alignment="center"
-              theme="outline"
-              width="280"
-              text="signin_with"
-            />
-            {oauthLoading && (
-              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-xs font-semibold">
-                Connecting...
-              </div>
-            )}
+            <motion.button
+              onClick={handleDemoLogin}
+              disabled={demoLoading}
+              className="w-full bg-white/10 border border-white/20 hover:bg-white/20 text-white font-bold py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <User className="w-5 h-5" />
+              {demoLoading ? 'Starting Demo...' : 'Continue as Guest'}
+            </motion.button>
           </div>
 
           {/* Test Credentials Info */}
@@ -160,7 +171,7 @@ const Login = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Google sign-in creates a secure LakshPath profile, syncs your AI assessments, and unlocks the dashboard instantly.
+            Use <strong>Guest Mode</strong> to explore the app instantly without a Google account.
           </motion.div>
         </motion.div>
 

@@ -30,8 +30,24 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #000000;
   overflow-x: hidden;
+  /* Web default: allow selection, no safe-area insets */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+input, textarea {
+  user-select: text; /* Allow text selection in inputs */
 }
 
 #root {

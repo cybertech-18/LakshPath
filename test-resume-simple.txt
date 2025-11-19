@@ -1,0 +1,15 @@
+SARAH JOHNSON
+Full Stack Developer
+sarah.johnson@email.com | (555) 987-6543
+
+SKILLS
+React, Node.js, Python, AWS, Docker, PostgreSQL, MongoDB
+
+EXPERIENCE
+Senior Developer at TechStart (2020-Present)
+- Built scalable web applications using React and Node.js
+- Reduced load time by 50% through optimization
+- Led team of 4 developers
+
+EDUCATION
+BS Computer Science, MIT (2018)
