@@ -138,3 +138,175 @@ export interface MarketBriefResponse {
   deltaSummary: string;
   recommendations: string[];
 }
+
+// ============================================
+// INTERVIEW PRACTICE AI TYPES
+// ============================================
+
+export interface InterviewQuestionGenerationRequest {
+  type: 'TECHNICAL' | 'BEHAVIORAL' | 'SYSTEM_DESIGN' | 'CODING';
+  difficulty: 'EASY' | 'MEDIUM' | 'HARD';
+  role?: string;
+  count?: number;
+  profile?: UserProfileSummary;
+}
+
+export interface InterviewQuestionGenerationResponse {
+  questions: Array<{
+    questionText: string;
+    questionType: string;
+    difficulty: string;
+    expectedAnswer: string;
+    evaluationCriteria: string[];
+    hints?: string[];
+  }>;
+}
+
+export interface InterviewAnswerEvaluationRequest {
+  questionText: string;
+  questionType: string;
+  userAnswer: string;
+  expectedAnswer?: string;
+  profile?: UserProfileSummary;
+}
+
+export interface InterviewAnswerEvaluationResponse {
+  score: number; // 0-100
+  feedback: string;
+  strengths: string[];
+  improvements: string[];
+  starAnalysis?: {
+    situation: string;
+    task: string;
+    action: string;
+    result: string;
+    score: number;
+  };
+  codeQuality?: {
+    timeComplexity: string;
+    spaceComplexity: string;
+    codeStyle: string;
+    edgeCases: string[];
+    score: number;
+  };
+}
+
+export interface SpeechAnalysisRequest {
+  transcript: string;
+  duration: number; // seconds
+}
+
+export interface SpeechAnalysisResponse {
+  confidence: number; // 0-100
+  fillerWords: { word: string; count: number }[];
+  pace: string; // 'TOO_FAST', 'GOOD', 'TOO_SLOW'
+  clarity: number; // 0-100
+  suggestions: string[];
+}
+
+// ============================================
+// PORTFOLIO / GITHUB ANALYSIS AI TYPES
+// ============================================
+
+export interface PortfolioAnalysisRequest {
+  githubUsername?: string;
+  repositories?: Array<{
+    name: string;
+    description?: string;
+    language?: string;
+    stars: number;
+    forks: number;
+    hasReadme: boolean;
+    hasTests: boolean;
+    hasCi: boolean;
+    lastCommit?: string;
+    readmeContent?: string;
+    codeSnippets?: string[];
+  }>;
+  targetRole?: string;
+  profile?: UserProfileSummary;
+}
+
+export interface PortfolioAnalysisResponse {
+  overallScore: number; // 0-100
+  codeQualityScore: number;
+  diversityScore: number;
+  contributionScore: number;
+  summary: string;
+  strengths: string[];
+  weaknesses: string[];
+  missingProjectTypes: string[];
+  recommendations: Array<{
+    title: string;
+    priority: 'LOW' | 'MEDIUM' | 'HIGH';
+    description: string;
+    impact: string;
+  }>;
+  repositoryInsights: Array<{
+    repoName: string;
+    score: number;
+    codeQualityScore: number;
+    complexity: 'LOW' | 'MEDIUM' | 'HIGH';
+    readmeQuality: 'POOR' | 'GOOD' | 'EXCELLENT';
+    improvements: string[];
+    highlights: string[];
+  }>;
+  projectIdeas?: Array<{
+    title: string;
+    description: string;
+    techStack: string[];
+    impact: string;
+  }>;
+  developerType?: string;
+  tag?: {
+    tagName: string;
+    description: string;
+  };
+}
+
+// ============================================
+// LINKEDIN PROFILE OPTIMIZER AI TYPES
+// ============================================
+
+export interface LinkedInOptimizationRequest {
+  targetRole?: string;
+  targetIndustry?: string;
+  currentHeadline?: string;
+  currentAbout?: string;
+  currentExperience?: Array<{
+    title: string;
+    company: string;
+    duration: string;
+    description: string;
+    achievements?: string[];
+  }>;
+  skills?: string[];
+  education?: string[];
+  profile?: UserProfileSummary;
+}
+
+export interface LinkedInOptimizationResponse {
+  optimizedHeadline: string;
+  optimizedAbout: string;
+  optimizedExperience?: Array<{
+    title: string;
+    company: string;
+    duration: string;
+    optimizedDescription: string;
+    optimizedAchievements: string[];
+    improvements: string[];
+  }>;
+  keywords: string[];
+  overallScore: number; // 0-100
+  beforeScore: number;
+  afterScore: number;
+  improvements: Array<{
+    category: string;
+    before: string;
+    after: string;
+    reason: string;
+  }>;
+  missingElements: string[];
+  atsOptimizationTips: string[];
+}
+

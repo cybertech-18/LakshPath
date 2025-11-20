@@ -20,14 +20,17 @@ model User {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  quizResults    QuizResult[]
-  insights       Insight[]
-  goalContracts  GoalContract[]
-  jdComparisons  JDComparison[]
-  skillSnapshots SkillSnapshot[]
-  demoRuns       DemoRun[]
-  roadmaps       LearningRoadmap[]
-  loginLogs      LoginLog[]
+  quizResults           QuizResult[]
+  insights              Insight[]
+  goalContracts         GoalContract[]
+  jdComparisons         JDComparison[]
+  skillSnapshots        SkillSnapshot[]
+  demoRuns              DemoRun[]
+  roadmaps              LearningRoadmap[]
+  loginLogs             LoginLog[]
+  interviewSessions     InterviewSession[]
+  portfolioAnalyses     PortfolioAnalysis[]
+  linkedinOptimizations LinkedInOptimization[]
 }
 
 model QuizResult {
@@ -207,6 +210,133 @@ model LoginLog {
   success     Boolean  @default(true)
   failReason  String?
   createdAt   DateTime @default(now())
+  
+  @@index([userId, createdAt])
+}
+
+// ============================================
+// INTERVIEW PRACTICE FEATURE
+// ============================================
+
+model InterviewSession {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type            String   // 'TECHNICAL', 'BEHAVIORAL', 'SYSTEM_DESIGN', 'CODING'
+  difficulty      String   // 'EASY', 'MEDIUM', 'HARD'
+  role            String?  // Target role: 'Software Engineer', 'Data Scientist', etc.
+  status          String   @default("IN_PROGRESS") // 'IN_PROGRESS', 'COMPLETED', 'ABANDONED'
+  overallScore    Float?
+  feedback        String?  // Overall AI feedback
+  speechAnalysis  String?  // JSON: confidence, filler words, pace, clarity
+  duration        Int?     // Duration in seconds
+  createdAt       DateTime @default(now())
+  completedAt     DateTime?
+
+  questions InterviewQuestion[]
+  
+  @@index([userId, createdAt])
+}
+
+model InterviewQuestion {
+  id                String           @id @default(cuid())
+  sessionId         String
+  session           InterviewSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  questionText      String
+  questionType      String           // 'TECHNICAL', 'BEHAVIORAL', 'CODING', 'PROBLEM_SOLVING'
+  difficulty        String
+  userAnswer        String?
+  answerScore       Float?           // 0-100
+  aiFeedback        String?          // Detailed feedback
+  strengths         String?          // JSON array
+  improvements      String?          // JSON array
+  starAnalysis      String?          // For behavioral: Situation, Task, Action, Result analysis
+  codeQuality       String?          // For coding: time complexity, code style, edge cases
+  expectedAnswer    String?          // What a good answer looks like
+  timeTaken         Int?             // Seconds
+  createdAt         DateTime         @default(now())
+  answeredAt        DateTime?
+  
+  @@index([sessionId])
+}
+
+// ============================================
+// PORTFOLIO / GITHUB ANALYSIS FEATURE
+// ============================================
+
+model PortfolioAnalysis {
+  id                   String   @id @default(cuid())
+  userId               String
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  githubUsername       String?
+  portfolioUrl         String?
+  overallScore         Float    // 0-100
+  codeQualityScore     Float?   // 0-100
+  diversityScore       Float?   // 0-100
+  contributionScore    Float?   // 0-100
+  summary              String
+  strengths            String   // JSON array
+  weaknesses           String   // JSON array
+  missingProjectTypes  String?  // JSON array for target role
+  recommendations      String   // JSON array
+  targetRole           String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  repositories RepositoryAnalysis[]
+  
+  @@index([userId, createdAt])
+}
+
+model RepositoryAnalysis {
+  id                 String            @id @default(cuid())
+  portfolioId        String
+  portfolio          PortfolioAnalysis @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  repoName           String
+  repoUrl            String
+  description        String?
+  language           String?
+  stars              Int               @default(0)
+  forks              Int               @default(0)
+  lastCommit         DateTime?
+  codeQualityScore   Float?            // Based on structure, documentation, tests
+  complexity         String?           // 'LOW', 'MEDIUM', 'HIGH'
+  hasReadme          Boolean           @default(false)
+  hasTests           Boolean           @default(false)
+  hasCi              Boolean           @default(false)
+  readmeQuality      String?           // 'POOR', 'GOOD', 'EXCELLENT'
+  improvements       String?           // JSON array
+  highlights         String?           // JSON array
+  createdAt          DateTime          @default(now())
+  
+  @@index([portfolioId])
+}
+
+// ============================================
+// LINKEDIN PROFILE OPTIMIZER FEATURE
+// ============================================
+
+model LinkedInOptimization {
+  id                  String   @id @default(cuid())
+  userId              String
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  targetRole          String?
+  targetIndustry      String?
+  currentHeadline     String?
+  optimizedHeadline   String
+  currentAbout        String?
+  optimizedAbout      String
+  currentExperience   String?  // JSON array
+  optimizedExperience String?  // JSON array with improved bullets
+  keywords            String   // JSON array of ATS keywords
+  overallScore        Float    // 0-100
+  beforeScore         Float?   // 0-100
+  afterScore          Float    // 0-100
+  improvements        String   // JSON array of specific improvements made
+  missingElements     String?  // JSON array
+  status              String   @default("DRAFT") // 'DRAFT', 'APPLIED', 'ARCHIVED'
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
   
   @@index([userId, createdAt])
 }

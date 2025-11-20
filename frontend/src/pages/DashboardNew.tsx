@@ -8,8 +8,9 @@ import {
   Star, Calendar, MessageCircle, Zap, Trophy, Users,
   Brain, Sparkles, ArrowRight, Activity, Layers, Download,
   Share2, Bell, X, AlertCircle, Filter, Search, Heart,
-  Phone, MapPinned, TrendingDown, Linkedin, FileText,
-  ArrowUpRight, Gauge, UserPlus, Loader2, Send, RefreshCcw
+  Phone, MapPinned, TrendingDown, FileText,
+  ArrowUpRight, Gauge, UserPlus, Loader2, Send, RefreshCcw,
+  MessageSquare, Github
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { assessmentAPI, chatAPI, marketAPI, jobsAPI, insightsAPI, userAPI } from '../services/api';
@@ -646,11 +647,6 @@ const DashboardNew = () => {
     showToast('🏆 Check out your achievements!');
   };
 
-  // Connect LinkedIn
-  const connectLinkedIn = () => {
-    showToast('🔗 LinkedIn integration coming soon!');
-  };
-
   // Upload Resume
   const uploadResume = () => {
     const input = document.createElement('input');
@@ -872,9 +868,14 @@ const DashboardNew = () => {
       };
 
       setChatMessages((prev) => [...prev, mentorMessage]);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Mentor chat failed', error);
-      showToast('Mentor is offline at the moment. Please retry.');
+      const errorMessage = error?.response?.status === 429 
+        ? 'Rate limit reached. Please wait a moment and try again.'
+        : error?.response?.status === 502
+        ? 'Mentor is busy. Please try again in a few seconds.'
+        : 'Unable to connect to mentor. Please check your connection and retry.';
+      showToast(errorMessage);
     } finally {
       setIsChatLoading(false);
     }
@@ -1272,7 +1273,7 @@ const DashboardNew = () => {
   const microCoachTasks = microCoach?.microTasks ?? [];
   const microCoachLastUpdated = microCoach?.generatedAt ? formatTimestamp(microCoach.generatedAt) : null;
   const domainRecommendations = [
-    `Highlight your latest ${domainTheme.mission.toLowerCase()} win on LinkedIn to attract ${activeDomain} hiring squads.`,
+    `Share your latest ${domainTheme.mission.toLowerCase()} achievement on professional networks to attract ${activeDomain} opportunities.`,
     `Block a weekly 2-hour deep work slot for ${activeDomain} practice and log it in your tracker.`,
     `Ship a micro project that proves your ${domainTheme.personalityTag.toLowerCase()} edge with quantified outcomes.`,
   ];
@@ -1327,6 +1328,8 @@ const DashboardNew = () => {
     { id: 'roadmap', label: 'Learning Path', icon: <MapPin className="w-5 h-5" /> },
     { id: 'community', label: 'Community', icon: <Users className="w-5 h-5" /> },
     { id: 'jobs', label: 'Job Opportunities', icon: <Briefcase className="w-5 h-5" /> },
+    { id: 'interview', label: 'Interview Practice', icon: <MessageSquare className="w-5 h-5" /> },
+    { id: 'portfolio', label: 'Portfolio Analysis', icon: <Github className="w-5 h-5" /> },
   ];
 
   const profileStatCards = [
@@ -1747,7 +1750,16 @@ const DashboardNew = () => {
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  // Navigate to dedicated pages for new features
+                  if (tab.id === 'interview') {
+                    navigate('/interview');
+                  } else if (tab.id === 'portfolio') {
+                    navigate('/portfolio');
+                  } else {
+                    setActiveTab(tab.id);
+                  }
+                }}
                 className={`flex items-center gap-2 px-6 py-4 rounded-sm font-bold transition whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'bg-white text-black'
@@ -2642,46 +2654,6 @@ const DashboardNew = () => {
               ) : (
                 <p className="text-sm text-gray-400">Run an assessment to unlock your personalized drills.</p>
               )}
-            </motion.div>
-
-            {/* LinkedIn/Resume Integration */}
-            <motion.div
-              className="bg-blue-500/10 border-2 border-blue-500/30 p-8 rounded-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              <div className="flex items-start gap-6">
-                <div className="bg-blue-600 p-6 rounded-sm">
-                  <Linkedin className="w-12 h-12 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-black mb-3">ENHANCE YOUR PROFILE</h3>
-                  <p className="text-gray-400 mb-6 text-lg">
-                    Upload your resume or connect LinkedIn for deeper AI analysis and better career matching
-                  </p>
-                  <div className="flex gap-4">
-                    <motion.button 
-                      onClick={connectLinkedIn}
-                      className="px-8 py-4 bg-blue-600 text-white rounded-sm font-black hover:bg-blue-700 transition flex items-center gap-2"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Linkedin className="w-5 h-5" />
-                      CONNECT LINKEDIN
-                    </motion.button>
-                    <motion.button 
-                      onClick={uploadResume}
-                      className="px-8 py-4 border-2 border-white text-white rounded-sm font-black hover:bg-white/10 transition flex items-center gap-2"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <FileText className="w-5 h-5" />
-                      UPLOAD RESUME
-                    </motion.button>
-                  </div>
-                </div>
-              </div>
             </motion.div>
           </div>
         )}

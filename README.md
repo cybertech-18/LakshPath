@@ -1,53 +1,190 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/e8b32e6b-05f3-46c4-8e50-fe6a56156b4c" alt="LakshPath Banner" width="800" />
   
-  # 🪐 LakshPath - Your AI-Powered Career Mentor
-  
-  ### **Lakshya (Goal) + Path (Direction)** = Your smart path to your dream career
-  
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Live Demo](https://img.shields.io/badge/Demo-Live-success)](https://lakshpath2.netlify.app)
-  [![Built with Pathway](https://img.shields.io/badge/Built%20with-Pathway-blue)](https://pathway.com/)
-  [![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react)](https://reactjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.2+-3178C6?logo=typescript)](https://www.typescriptlang.org/)
-  [![AI Powered](https://img.shields.io/badge/AI-Powered-green)](https://openai.com/)
-  
-  **[🚀 Live Demo](https://lakshpath2.netlify.app)** • **[📖 Documentation](./DOCUMENTATION.md)** • **[📋 Workflow](./WORKFLOW.md)**
-  
+# 🪐 LakshPath - Your AI-Powered Career Mentor
+
+### **Lakshya (Goal) + Path (Direction)** = Your smart path to your dream career
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Live Demo](https://img.shields.io/badge/Demo-Live-success)](https://lakshpath2.netlify.app)
+[![Built with Pathway](https://img.shields.io/badge/Built%20with-Pathway-blue)](https://pathway.com/)
+[![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2+-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+
+**[🚀 Live Demo](https://lakshpath2.netlify.app)** • **[📖 Documentation](./DOCUMENTATION.md)** • **[🏗️ Architecture](./ARCHITECTURE.md)** • **[⚡ Quick Start](./QUICK_START.md)**
+
 </div>
 
 ---
 
 ## 📋 Table of Contents
 
-- [About LakshPath](#-about-lakshpath)
-- [Problem Statement](#-problem-statement)
-- [Solution](#-solution)
+- [About](#-about)
 - [Key Features](#-key-features)
 - [Tech Stack](#️-tech-stack)
-- [Architecture](#-architecture)
-- [Getting Started](#-getting-started)
-- [Usage](#-usage)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
+- [Quick Start](#-quick-start)
+- [Documentation](#-documentation)
 - [Contact](#-contact)
 - [License](#-license)
 
 ---
 
-## 🎯 About LakshPath
+## 🎯 About
 
-**LakshPath** is an intelligent AI-powered career guidance platform designed to help students across India discover their ideal career path through personalized assessments, real-time job market analysis, and adaptive learning roadmaps.
+**LakshPath** is an intelligent AI-powered career guidance platform that helps students discover their ideal career path through personalized assessments, real-time job market analysis, and adaptive learning roadmaps.
 
-### 🌟 Why LakshPath?
+### Why LakshPath?
 
-- 🧠 **AI-Powered Personalization** - Unique career recommendations based on individual strengths and interests
-- 🔄 **Real-Time Market Intelligence** - Live job market data powered by Pathway Framework
+- 🧠 **AI-Powered Personalization** - Career recommendations based on your unique strengths
+- 🔄 **Real-Time Market Intelligence** - Live job market data via Pathway Framework
 - 🎯 **Actionable Roadmaps** - Step-by-step learning paths tailored to your goals
-- 🌐 **Accessible to All** - Free tier available, designed for students across all tiers
-- 📈 **Data-Driven Insights** - Make informed decisions backed by industry trends
+- 🌐 **Accessible to All** - Free tier available for students
+- 📈 **Data-Driven** - Informed decisions backed by industry trends
 
 ---
+
+## ✨ Key Features
+
+### 🎓 Core Features
+
+- **Smart Assessment** - 10-question AI quiz with 92%+ accuracy
+- **Career Matching** - Top 5 personalized career recommendations with detailed insights
+- **Learning Dashboard** - Personalized course recommendations and progress tracking
+- **GitHub Analyzer** - Analyze coding profile and get career suggestions
+- **Interview Practice** - AI-generated questions with real-time feedback
+- **NSQF Vocational Pathway** - Government-certified skill programs
+- **Resume Analyzer** - Automated parsing and career suggestions
+
+### 🤖 AI-Powered Tools
+
+- **Concept Explainer** - Get explanations at any depth (beginner to expert)
+- **Quiz Generator** - Auto-generated practice questions
+- **Learning Insights** - AI analyzes your patterns and suggests next steps
+- **Market Intelligence** - Real-time job market trends and opportunities
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React 18 + TypeScript
+- Tailwind CSS + Framer Motion
+- Vite + Capacitor (for mobile)
+
+### Backend
+- Node.js + Express + TypeScript
+- PostgreSQL + Prisma ORM
+- Google OAuth 2.0
+- Gemini AI + Pathway Framework
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- PostgreSQL
+- Google OAuth credentials
+- Gemini API key
+
+### Installation
+
+```bash
+# Clone repository
+git clone https://github.com/cybertech-18/LakshPath.git
+cd Lakshpath
+
+# Install dependencies
+cd backend && npm install
+cd ../frontend && npm install
+
+# Setup environment
+cp backend/.env.example backend/.env
+# Edit backend/.env with your credentials
+
+# Run migrations
+cd backend && npx prisma migrate deploy
+
+# Start application
+npm run dev  # in both frontend and backend
+```
+
+### Access
+- **Frontend**: http://localhost:3001
+- **Backend**: http://localhost:5001
+- **Live Demo**: https://lakshpath2.netlify.app
+
+---
+
+## 📚 Documentation
+
+- **[Complete Documentation](./DOCUMENTATION.md)** - Full setup, API docs, troubleshooting
+- **[Architecture Guide](./ARCHITECTURE.md)** - System design and tech stack details
+- **[Quick Start Guide](./QUICK_START.md)** - Fast setup for development
+- **[Workflow Guide](./WORKFLOW.md)** - User journeys and feature workflows
+- **[Local Setup](./LOCAL_SETUP.md)** - Detailed local development setup
+
+---
+
+## 🎯 How It Works
+
+```
+1. Sign up with Google OAuth
+   ↓
+2. Take AI-powered assessment (10 questions)
+   ↓
+3. Get top 5 career recommendations
+   ↓
+4. Choose your path
+   ↓
+5. Receive personalized learning roadmap
+   ↓
+6. Track progress & explore AI tools
+```
+
+---
+
+## 🌟 Highlights
+
+- **92%+ Match Accuracy** - Proven career recommendation precision
+- **10,000+ Careers** - Comprehensive career database
+- **Real-Time Updates** - Live job market intelligence
+- **AI-Powered** - Google Gemini AI for analysis
+- **Mobile Ready** - Capacitor for native apps
+- **Government Aligned** - NSQF certified pathways
+
+---
+
+## 📞 Contact
+
+- **Email**: ayush@lakshpath.com
+- **Phone**: +91 7982659056
+- **GitHub**: [cybertech-18/LakshPath](https://github.com/cybertech-18/LakshPath)
+- **Live Demo**: [lakshpath2.netlify.app](https://lakshpath2.netlify.app)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Pathway Framework** - Real-time data processing
+- **Google Gemini AI** - Career intelligence engine
+- **Open Source Community** - Amazing tools and libraries
+
+---
+
+<div align="center">
+
+**Made with ❤️ by Team LakshPath**
+
+*Empowering students to discover their dream careers*
+
+</div>
+
 
 ## 🪐 Problem Statement
 

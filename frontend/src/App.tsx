@@ -6,6 +6,8 @@ import QuizIntro from './pages/QuizIntro'
 import AssessmentQuiz from './pages/AssessmentQuiz'
 import Dashboard from './pages/DashboardNew'
 import Learn from './pages/Learn'
+import InterviewPractice from './pages/InterviewPractice'
+import PortfolioAnalysis from './pages/PortfolioAnalysis'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css'
 import { useEffect } from 'react'
@@ -105,6 +107,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Learn />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/interview" 
+          element={
+            <ProtectedRoute>
+              <InterviewPractice />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/portfolio" 
+          element={
+            <ProtectedRoute>
+              <PortfolioAnalysis />
             </ProtectedRoute>
           } 
         />

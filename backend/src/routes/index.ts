@@ -11,6 +11,11 @@ import marketRouter from './market.routes';
 import scholarshipsRouter from './scholarships.routes';
 import authRouter from './auth.routes';
 import userRouter from './user.routes';
+import interviewRouter from './interview.routes';
+import interviewEnhancedRouter from './interviewEnhanced.routes';
+import portfolioRouter from './portfolio.routes';
+import learningEnhancedRouter from './learningEnhanced.routes';
+import nsqfRouter from './nsqf.routes';
 
 const router = Router();
 
@@ -25,5 +30,10 @@ router.use('/market', marketRouter);
 router.use('/scholarships', scholarshipsRouter);
 router.use('/demo', demoRouter);
 router.use('/user', userRouter);
+router.use('/interview', interviewRouter);
+router.use('/interview-enhanced', interviewEnhancedRouter);
+router.use('/portfolio', portfolioRouter);
+router.use('/learning-enhanced', learningEnhancedRouter);
+router.use('/nsqf', nsqfRouter);
 
 export default router;
